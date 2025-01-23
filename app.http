@@ -1,0 +1,55 @@
+### Test POST /signup (Sign up a new user)
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "email": "newuser@example.com",
+  "password": "password123"
+}
+
+### Test POST /login (Login to get a JWT token)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password": "password123"
+}
+
+### Test POST /blogs (Create a new blog)
+POST http://localhost:3000/blogs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkxMDI2NDRkNDAyM2Y5ODkzNWY4ODQiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzc1NTcwMjB9.xqOJbznJkrU9UbFMbT85qx56Y0_TkxwuPRQEhRH40DM
+Content-Type: application/json
+
+{
+  "title": "My First Blog",
+  "content": "This is the content of my first blog."
+}
+
+### Test POST /blogs/:id/assign (Assign an editor to a blog)
+POST http://localhost:3000/blogs/60d4fcf7e7f75e4bfc1f61db/assign
+Authorization: Bearer 
+Content-Type: application/json
+
+{
+  "editorId": "60d4fcf7e7f75e4bfc1f61dc"
+}
+
+### Test PUT /blogs/:id (Edit an existing blog)
+PUT http://localhost:3000/blogs/60d4fcf7e7f75e4bfc1f61db
+Authorization: Bearer <your_token_here>
+Content-Type: application/json
+
+{
+  "title": "Updated Blog Title",
+  "content": "Updated content of the blog."
+}
+
+### Test GET /blogs (Get a list of all blogs)
+GET http://localhost:3000/blogs
+Authorization: Bearer <your_token_here>
+
+### Test DELETE /comments/:id (Delete a user's comment)
+DELETE http://localhost:3000/comments/60d4fcf7e7f75e4bfc1f61d2
+Authorization: Bearer <your_token_here>
